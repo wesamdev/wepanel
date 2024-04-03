@@ -45,6 +45,11 @@ routes = [
         'module': 'routes.dashboard',
         'function': 'dashboard'
     },
+                        {
+        'url': '/api/logout',
+        'module': 'api.logout',
+        'function': 'logout'
+    },
 ]
 loginroute.init_outh(app)
 # Register the routes
