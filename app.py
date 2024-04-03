@@ -41,7 +41,7 @@ routes = [
         'function': 'userinfo'
     },
                     {
-        'url': '/dashboard',
+        'url': '/dash',
         'module': 'routes.dashboard',
         'function': 'dashboard'
     },
