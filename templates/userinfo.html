@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 h-screen flex flex-col justify-center items-center">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-semibold mb-4">User Information</h1>
+        <div class="mb-4">
+            <p class="text-lg"><span class="font-semibold">User Name:</span> {{ user_name }}</p>
+            <p class="text-lg"><span class="font-semibold">User ID:</span> {{ user_id }}</p>
+            <img src="{{ avatar_url }}" alt="User Avatar" class="w-24 h-24 rounded-full">
+        </div>
+    </div>
+</body>
+
+</html>

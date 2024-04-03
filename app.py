@@ -35,11 +35,18 @@ routes = [
         'module': 'routes.login',
         'function': 'discord_login'
     },
-    
+                {
+        'url': '/user/info',
+        'module': 'routes.userinfo',
+        'function': 'userinfo'
+    },
 ]
 loginroute.init_outh(app)
 # Register the routes
 register_routes(app, routes)
+
+
+
 
 if __name__ == '__main__':
     app.run()

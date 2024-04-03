@@ -1,7 +1,8 @@
-from flask import render_template
-from flask import redirect, url_for, session
-from authlib.integrations.flask_client import OAuth
+import os
+from flask import render_template, session
+from flask import redirect, url_for
 import json
+from flask_discord import DiscordOAuth2Session, Unauthorized
 
 with open('config.json') as f:
     config = json.load(f)
@@ -10,30 +11,34 @@ with open('config.json') as f:
 def login():
     return render_template('login.html')
 
-oauth=None
 discord=None
 def init_outh(app):
-    global oauth, discord
-    oauth = OAuth(app)
-    discord = oauth.register(
-        name='discord',
-        client_id=config['discord']['client_id'],
-        client_secret=config['discord']['client_secret'],
-        authorize_url='https://discord.com/api/oauth2/authorize',
-        authorize_params=None,
-        access_token_url='https://discord.com/api/oauth2/token',
-        access_token_params=None,
-        refresh_token_url=None,
-        client_kwargs={'scope': 'identify'}
-        
-    )
+    global discord
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"      # !! Only in development environment.
+
+    app.config["DISCORD_CLIENT_ID"] = config['discord']['client_id']    # Discord client ID.
+    app.config["DISCORD_CLIENT_SECRET"] = config['discord']['client_secret']             # Discord client secret.
+    app.config["DISCORD_REDIRECT_URI"] = config['discord']['redirect_uri']               # URL to your callback endpoint.
+    # app.config["DISCORD_BOT_TOKEN"] = ""                    # Required to access BOT resources.
+
+    discord = DiscordOAuth2Session(app)
+    @app.errorhandler(Unauthorized)
+    def redirect_unauthorized(e):
+        return redirect(url_for("login"))
 
 
 def callback():
-    token = discord.authorize_access_token()
-    session['user'] = token
-    return redirect(url_for('home'))
+    discord.callback()
+    user = discord.fetch_user()
+    session['username'] = user.name
+    session['avatarurl'] = user.avatar_url
+    session['userid'] = user.id
+    print(session)
+    return redirect(url_for(".home"))
+
+
+
+
 def discord_login():
-    redirect_uri = url_for('callback', _external=True)
-    return discord.authorize_redirect(redirect_uri)
+    return discord.create_session()
 
