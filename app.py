@@ -1,8 +1,8 @@
 from flask import Flask
 import importlib
-
+import routes.login as loginroute
 app = Flask(__name__)
-
+app.secret_key = 'daldol'
 def register_routes(app, routes):
     for route in routes:
         try:
@@ -25,8 +25,19 @@ routes = [
         'module': 'routes.login',
         'function': 'login'
     },
+        {
+        'url': '/login/callback',
+        'module': 'routes.login',
+        'function': 'callback'
+    },
+            {
+        'url': '/login/discord',
+        'module': 'routes.login',
+        'function': 'discord_login'
+    },
+    
 ]
-
+loginroute.init_outh(app)
 # Register the routes
 register_routes(app, routes)
 
