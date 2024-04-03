@@ -36,7 +36,7 @@ routes = [
         'function': 'discord_login'
     },
                 {
-        'url': '/user/info',
+        'url': '/dash/user/info',
         'module': 'routes.userinfo',
         'function': 'userinfo'
     },
