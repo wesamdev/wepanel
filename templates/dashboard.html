@@ -1,0 +1,37 @@
+{% extends "dashbase.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="flex-1 p-4">
+    <!-- Your dashboard content goes here -->
+    <h1 class="text-2xl font-bold mb-4">Welcome to the Dashboard</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-4 shadow-md rounded-lg">
+            <h2 class="text-lg font-semibold mb-2">User Information</h2>
+            <div class="flex items-center mb-4">
+                <img src="{{ avatar_url }}" alt="User Avatar" class="h-10 w-10 rounded-full mr-2">
+                <div>
+                    <p class="text-base font-medium">{{ user_name }}</p>
+                    <p class="text-sm text-gray-500">{{ user_id }}</p>
+                </div>
+            </div>
+            <p>This is your dashboard content.</p>
+        </div>
+        <div class="bg-white p-4 shadow-md rounded-lg">
+            <h2 class="text-lg font-semibold mb-2">Recent Activity</h2>
+            <ul class="divide-y divide-gray-200">
+                <li class="py-2">
+                    <p class="text-sm">You have 3 new messages.</p>
+                    <p class="text-xs text-gray-500">5 minutes ago</p>
+                </li>
+                <li class="py-2">
+                    <p class="text-sm">New user registered.</p>
+                    <p class="text-xs text-gray-500">1 hour ago</p>
+                </li>
+                <!-- Add more recent activities as needed -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

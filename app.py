@@ -40,6 +40,11 @@ routes = [
         'module': 'routes.userinfo',
         'function': 'userinfo'
     },
+                    {
+        'url': '/dashboard',
+        'module': 'routes.dashboard',
+        'function': 'dashboard'
+    },
 ]
 loginroute.init_outh(app)
 # Register the routes

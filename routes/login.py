@@ -34,7 +34,7 @@ def callback():
     session['avatarurl'] = user.avatar_url
     session['userid'] = user.id
     print(session)
-    return redirect(url_for(".home"))
+    return redirect(url_for(".dashboard"))
 
 
 

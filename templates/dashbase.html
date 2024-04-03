@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-64 flex flex-col">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+            </div>
+            <nav class="flex-1">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Link 3</a>
+                    </li>
+                    <!-- Add more links as needed -->
+                </ul>
+            </nav>
+            <div class="p-4">
+                <a href="#" class="block py-2 px-4 bg-red-600 hover:bg-red-700 text-center rounded-md">Logout</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 p-4">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
