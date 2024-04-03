@@ -18,12 +18,15 @@
             </div>
             <nav class="flex-1">
                 <ul class="space-y-2">
+
                     <li>
-                        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Link 1</a>
+                        <a href="{{ url_for('dashboard') }}" class="block py-2 px-4 hover:bg-gray-700">Main</a>
                     </li>
+
                     <li>
-                        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Link 2</a>
+                        <a href="{{ url_for('userinfo') }}" class="block py-2 px-4 hover:bg-gray-700">User Info</a>
                     </li>
+
                     <li>
                         <a href="#" class="block py-2 px-4 hover:bg-gray-700">Link 3</a>
                     </li>

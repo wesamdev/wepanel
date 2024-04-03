@@ -54,4 +54,4 @@ register_routes(app, routes)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True) # disable this if you want to run on production and run server on wsgi
