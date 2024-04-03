@@ -20,7 +20,11 @@ routes = [
         'module': 'routes.home',
         'function': 'home'
     },
-    # Add more routes as needed
+        {
+        'url': '/login',
+        'module': 'routes.login',
+        'function': 'login'
+    },
 ]
 
 # Register the routes
