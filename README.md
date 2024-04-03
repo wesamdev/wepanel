@@ -1,2 +1,3 @@
 # wepanel
- wepanel is a panel for pterodactyl
+
+wepanel is a panel for pterodactyl.
