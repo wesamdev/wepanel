@@ -1,10 +1,6 @@
 from flask import render_template, session
 
 def userinfo():
-    # user = discord.fetch_user()
-    # session['username'] = user.name
-    # session['avatarurl'] = user.avatar_url
-    # session['userid'] = user.id
     username = session.get('username')
     avatarurl = session.get('avatarurl')
     userid = session.get('userid')
