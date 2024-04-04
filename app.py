@@ -1,8 +1,15 @@
 from flask import Flask
 import importlib
 import routes.login as loginroute
+import json
 app = Flask(__name__)
-app.secret_key = 'daldol'
+
+with open('config.json') as f:
+    config = json.load(f)
+
+sceretkey = config['panel']['sceret']
+
+app.secret_key = sceretkey
 def register_routes(app, routes):
     for route in routes:
         try:
