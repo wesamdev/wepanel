@@ -2,3 +2,4 @@ Flask
 requests
 Flask-Discord
 pydactyl
+pymongo
