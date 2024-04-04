@@ -2,7 +2,8 @@
     "panel":{
         "url": "http://127.0.0.1:5000",
         "sceret" : "SECRET",
-        "panelname" : "wepanel"
+        "panelname" : "wepanel",
+        "apikey": "wepanel123456789"
     },
     "discord":{
         "client_id": "CLIENT_ID",
