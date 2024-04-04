@@ -51,7 +51,7 @@ routes = [
         'function': 'logout'
     },
 ]
-loginroute.init_outh(app)
+loginroute.init_oauth(app)
 # Register the routes
 register_routes(app, routes)
 
