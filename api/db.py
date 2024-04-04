@@ -23,3 +23,17 @@ def get_user_coins(userid):
             return jsonify({"error": "User not found"}), 404
     else:
         return jsonify({"error": "Method not allowed"}), 405
+
+
+def set_user_coins(userid, coins):
+    if request.method == "POST" and request.headers.get("Authorization"):
+        if apikey != request.headers.get("Authorization"):
+            return jsonify({"error": "Invalid API key"}), 401
+        user = users_collection.find_one({"userid": userid})
+        if user:
+            users_collection.update_one({"userid": userid}, {"$set": {"coins": coins}})
+            return jsonify({"coins": coins})
+        else:
+            return jsonify({"error": "User not found"}), 404
+    else:
+        return jsonify({"error": "Method not allowed"}), 405
