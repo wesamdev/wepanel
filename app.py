@@ -45,10 +45,16 @@ routes = [
         'module': 'routes.dashboard',
         'function': 'dashboard'
     },
+    # API Routes
                         {
         'url': '/api/logout',
         'module': 'api.logout',
         'function': 'logout'
+    },
+                            {
+        'url': '/api/user/<int:userid>/coins',
+        'module': 'api.db',
+        'function': 'get_user_coins'
     },
 ]
 loginroute.init_oauth(app)
